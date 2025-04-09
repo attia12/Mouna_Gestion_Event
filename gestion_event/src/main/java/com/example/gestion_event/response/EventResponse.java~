@@ -23,5 +23,4 @@ public class EventResponse {
     private EventCategory category;
     private double price;
     private byte[] image;
-    private LocalDateTime startDate;
 }

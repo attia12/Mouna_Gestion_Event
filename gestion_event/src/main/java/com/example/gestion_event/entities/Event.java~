@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@EntityListeners(AuditingEntityListener.class)
 
 public class Event {
     @Id
@@ -55,6 +53,6 @@ public class Event {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Feedback> feedbacks;
     @CreatedDate
-    @Column(nullable = false,updatable = false)
+    @Column(updatable = false)
     private LocalDateTime startDate;
 }
